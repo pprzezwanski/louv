@@ -1,0 +1,122 @@
+.louv {   
+  position: relative;
+  display: flex;
+  align-items: center; // can be reassigned
+  justify-content: center; // can be reassigned
+  height: 100%; // can be reassigned
+  width: 100%; // can be reassigned
+  perspective: 2000px; // can be reassigned
+  opacity: 0; // initial hide
+  
+  &.is-hidden { opacity: 0; }
+
+  &.is-inactive { display: none }
+
+  &__picture {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    perspective: 1500px; // can be reassigned
+    perspective-origin: 50% 70%; // can be reassigned
+    transform: translateZ(0);
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 1s;
+    
+    &.is-hidden { opacity: 0; }
+
+    &.is-inactive { display: none; }
+
+    &.is-flattened {
+      transition: transform 1s !important;
+
+      .louv__molecule {
+        transition: transform 1s !important;
+        transform: scale(.99) !important;
+        will-change: auto;
+      }
+      
+      canvas { 
+        transition: transform 1s !important;
+        transform: '' !important; 
+      }
+    }
+
+    &.is-shrinked {
+      transform: scale(.10) translateZ(0) !important;
+    }
+  }
+
+  &__molecule {
+      position: absolute;
+      will-change: transform;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  canvas {
+      display: block;
+      transform: scale(1.02);
+  }
+
+  img {
+      visibility: hidden;
+  }
+
+  &__loading {
+      position: fixed;
+      z-index: 9999;
+      top: calc(1rem + 1.1vmin);
+      left: calc(1rem + 1.1vmin);
+      width: calc(2rem + 2.5vmin);
+      height: calc(2rem + 2.5vmin);
+      animation: 3s cubic-bezier(0.2,.5,.8,.5) infinite;
+      animation-name: louv-loading;
+      transition: opacity .5s;
+      pointer-events: none;
+      opacity: 0;
+      animation-play-state: paused;
+      display: none;
+  
+      &.is-visible {
+          opacity: 1;
+          pointer-events: all;
+          animation-play-state: running;
+          display: block;
+      }
+
+      &:before, &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+          border-style: dotted;
+          border-style: dashed;
+      }
+      
+      &:before {
+          border-width: 3px 3px 0px 0px;
+          border-color: black black transparent transparent;
+      }
+      
+      &:after {
+          border-width: 0px 0px 3px 3px;
+          border-color: transparent transparent white white ;
+      }
+  }
+  
+  @keyframes louv-loading {
+      0% {
+          transform: rotate(0deg);
+      }
+  
+      100% {
+          transform: rotate(360deg);
+      }
+  }
+}
