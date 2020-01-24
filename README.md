@@ -1,4 +1,4 @@
-# [louv](http://ho-gi.com) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pprzezwanski/louv/blob/master/LICENSE) [![Build Status](https://travis-ci.org/pprzezwanski/louv.svg?branch=master)](https://travis-ci.com/pprzezwanski/louv)
+# [louv](https://ho-gi.com) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pprzezwanski/louv/blob/master/LICENSE) [![Build Status](https://travis-ci.org/pprzezwanski/louv.svg?branch=master)](https://travis-ci.com/pprzezwanski/louv) [![Coverage Status](https://coveralls.io/repos/github/pprzezwanski/louv/badge.svg?branch=master)](https://coveralls.io/github/pprzezwanski/louv?branch=master)
 
 Louv is a JavaScript library that simplifies production of image or text complex transformations that can be animated and chained while ensuring they are smooth, responsive and cross-browser.
 
@@ -10,7 +10,13 @@ Louv's morphFactory takes complicated things out of developers head while giving
 
 Louv's pictureFactory is standalone module that will slice any image or text into molecules with usefull selectors that enable styling with css.
 
-[battle-tested in different usecases on ho-gi.com](http://ho-gi.com).
+[battle tested with different use cases on ho-gi.com](https://ho-gi.com).
+
+## Use cases:
+
+* **design complex animated transformations:** thanks to its built in morphs and morphFactory tool for new morphs creation louv is comfortable tool to design any kind of injected css based transformations, including ones that seems to be impossible
+* **crate gallery** louv has build in a gallery mechanism with methods: presentPicture, hidePicture, next, loop 
+* **slice image or text into molecules** louv's picture factory is a tool to split html img element into canvas molecules or split html text into span elements containing words or chars.
 
 ## Features:
 
@@ -253,4 +259,4 @@ The main purpose of this repository is to continue to evolve louv and create mor
 ## License
 
 Louv is [MIT licensed](./LICENSE).
-Copyright (c) 2018-2019 Pawel Przezwanski <[http://ho-gi.com/](http://ho-gi.com/)>
+Copyright (c) 2018-2019 Pawel Przezwanski <[https://ho-gi.com/](https://ho-gi.com/)>
