@@ -10,7 +10,13 @@ Louv's morphFactory takes complicated things out of developers head while giving
 
 Louv's pictureFactory is standalone module that will slice any image or text into molecules with usefull selectors that enable styling with css.
 
-[battle-tested in different usecases on ho-gi.com](http://ho-gi.com).
+[battle tested with different use cases on ho-gi.com](http://ho-gi.com).
+
+## Use cases:
+
+* **design complex animated transformations:** thanks to its built in morphs and morphFactory tool for new morphs creation louv is comfortable tool to design any kind of injected css based transformations, including ones that seems to be impossible
+* **crate gallery** louv has build in a gallery mechanism with methods: presentPicture, hidePicture, next, loop 
+* **slice image or text into molecules** louv's picture factory is a tool to split html img element into canvas molecules or split html text into span elements containing words or chars.
 
 ## Features:
 
