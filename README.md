@@ -1,4 +1,4 @@
-# [louv](http://ho-gi.com) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pprzezwanski/louv/blob/master/LICENSE)
+# [louv](http://ho-gi.com) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pprzezwanski/louv/blob/master/LICENSE) [![Build Status](https://travis-ci.org/pprzezwanski/louv.svg?branch=master)](https://travis-ci.com/pprzezwanski/louv)
 
 Louv is a JavaScript library that simplifies production of image or text complex transformations that can be animated and chained while ensuring they are smooth, responsive and cross-browser.
 
