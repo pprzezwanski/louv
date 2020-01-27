@@ -12,10 +12,9 @@ import decrementArrayIndex from './utils/decrementArrayIndex';
 import leastCommonMultiple from './utils/leastCommonMultiple';
 import durationPromiseRace from './utils/durationPromiseRace';
 import analyseOptionalArguments from './utils/analyseOptionalArguments';
-import initialScenario from './scenarios/example';
+import initialScenario from './scenarios/dissolution';
 
 /*!
- * Louv v1.1.0
  * (c) 2019 Paweł Przezwański <pprzezwanski@gmail.com>
  * Released under the MIT License.
  * Repository and instructions: https://github.com/pprzezwanski/louv/

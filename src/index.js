@@ -2,14 +2,15 @@ import LouvGallery from './LouvGallery';
 
 // export main louv components
 export default LouvGallery;
-// export { default as LouvMolecule } from './LouvMolecule';
-// export { default as LouvImage } from './LouvImage';
-// export { default as LouvText } from './LouvText';
 export { default as morphFactory } from './morphFactory';
 export { default as pictureFactory } from './pictureFactory';
 
 // export scenarios
-export { default as scenarioExample } from './scenarios/example';
+export { default as scenarioDissolution } from './scenarios/dissolution';
+export { default as scenarioPicasso } from './scenarios/picasso';
+export { default as scenarioWavetation } from './scenarios/wavetation';
+export { default as scenarioCylinder } from './scenarios/cylinder';
+export { default as scenarioBasic } from './scenarios/basic';
 
 // export morphs
 export { default as restructure } from './morphs/restructure';
@@ -35,6 +36,3 @@ export * from './morphs/filterize';
 
 export { default as circles } from './morphs/circles';
 export * from './morphs/circles';
-
-
-
