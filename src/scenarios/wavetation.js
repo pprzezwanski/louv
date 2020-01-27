@@ -8,6 +8,12 @@ import fadeout from '../morphs/fadeout-gallery';
 const cylinderizeDuration = 2700;
 const cylinderizeTiming = 'cubic-bezier(.2, 0, .1, 1)';
 
+const rotationTranslate = {
+  x: '7%',
+  y: '0',
+  z: '-200px',
+};
+
 export default {
   present: [
     fragmentize(0, {
@@ -21,7 +27,7 @@ export default {
     cylinderize(cylinderizeDuration, {
       parallel: true,
       sType: true,
-      angleInRadians: Math.PI / (GLOBAL.isMobileOrTablet ? 13 : 14),
+      angleInRadians: Math.PI / 13,
       timingFunction: cylinderizeTiming,
     }),
     transform(cylinderizeDuration, {

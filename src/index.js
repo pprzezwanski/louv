@@ -9,7 +9,7 @@ export { default as pictureFactory } from './pictureFactory';
 export { default as scenarioDissolution } from './scenarios/dissolution';
 export { default as scenarioPicasso } from './scenarios/picasso';
 export { default as scenarioWavetation } from './scenarios/wavetation';
-export { default as scenarioCylinder } from './scenarios/cylinder';
+export { default as scenarioCylinderation } from './scenarios/cylinderation';
 export { default as scenarioBasic } from './scenarios/basic';
 
 // export morphs
