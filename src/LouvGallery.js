@@ -39,9 +39,9 @@ export default class Louv {
       initialHeight: null,
       passive: false,
       type: 'image',
-      preloadAllPictures: true,
+      preloadAllPictures: false,
       preloadPictureCss: true,
-      preloadAllCss: true,
+      preloadAll: false,
       globalWaitAfterPresent: null,
       globalWaitAfterHide: null,
       loadingMessage: true,
@@ -944,7 +944,7 @@ export default class Louv {
     return Promise.all(pictureCssPromises);
   }
 
-  preloadAllCss() {
+  preloadAll() {
     if (this.config.debug) console.log('PRELOADING ALL CSS IN G', this.id, this.name ? `: ${this.name}` : '');
 
     const promise = new Promise((r) => {
@@ -1013,7 +1013,7 @@ export default class Louv {
   init() {
     if (this.initialized) return false;
 
-    if (this.config.preloadAllCss) this.config.preloadAllPictures = true;
+    if (this.config.preloadAll) this.config.preloadAllPictures = true;
 
     const frame1 = () => {
       if (!this.element) {
@@ -1062,8 +1062,8 @@ export default class Louv {
         : this.picturesPromises[0];
 
       this.promiseTo.loadNecessaryPictures
-        .then(() => (this.config.preloadAllCss
-          ? this.preloadAllCss()
+        .then(() => (this.config.preloadAll
+          ? this.preloadAll()
           : Promise.resolve()
         ))
         .then(() => fq.add(() => {

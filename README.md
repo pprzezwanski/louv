@@ -227,7 +227,7 @@ const louvInstance = new Louv({
     cropImage: true,
     moleculesAmount: isMobileOrTablet ? 11 : 13,
   },
-  preloadAllCss: !isMobileOrTablet,
+  preloadAll: !isMobileOrTablet,
   scenarios: [scenario1, scenario2],
 })
 
