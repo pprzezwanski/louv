@@ -238,19 +238,20 @@ louvInstance.init()
 
 // or:
 
-smthElse.then(() => {
-  louvInstance.init();
-})
-
-louvInstance.promiseTo.beReady
-  .then(() => louvInstance.presentPicture())
+smthElse
+  .then(() => {
+    louvInstance.init();
+    anotherThing();
+    return louvInstance.promiseTo.beReady
+  })
+  .then(() => louvInstance.loop())
   .then(() => promiseSmthElse())
   .then(() => louvInstance.next);
 ```
 
 ## Documentation
 
-Not ready yet.
+https://github.com/pprzezwanski/louv/wiki/Documentation
 
 ## Contributing
 
