@@ -1,21 +1,21 @@
 # [louv](https://ho-gi.com) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/pprzezwanski/louv/blob/master/LICENSE) [![Build Status](https://travis-ci.org/pprzezwanski/louv.svg?branch=master)](https://travis-ci.com/pprzezwanski/louv) [![Coverage Status](https://coveralls.io/repos/github/pprzezwanski/louv/badge.svg?branch=master)](https://coveralls.io/github/pprzezwanski/louv?branch=master)
 
-Louv is a JavaScript library that simplifies production of image or text complex transformations that can be animated and chained while ensuring they are smooth, responsive and cross-browser.
+Louv is a JavaScript library that simplifies production of image or text complex transformations that can be animated and chained while ensuring they are smooth, responsive and cross-browser
 
-Louv library consists of the LouvGallery (default import), scenarios, morphs and for advanced users: morphFactory, pictureFactory.
+In most simple words Louv presents and hides sliced pictures (image or text type) with certain scenarios that consisit of chained (or parallel) configurable morphs that are css based transformations.
 
-In most simple words louv presents and hides sliced pictures (image or text) with certain scenarios that consisit of morphs. 
+Louv library consists of the LouvGallery (default import), morphs, scenarios and for advanced users: morphFactory, pictureFactory.
 
-Louv's morphFactory takes complicated things out of developers head while giving space to concentrate on the art of geometrical and time aspects. 
+Louv's morphFactory takes complicated things out of developers head while giving space to concentrate on the art of geometrical and time aspects. It helps prepare css class for complex transformations of picture molecules, atoms or picture itself. Every morph is a single css class.
 
 Louv's pictureFactory is standalone module that will slice any image or text into molecules with usefull selectors that enable styling with css.
 
-[battle tested with different use cases on ho-gi.com](https://ho-gi.com).
+#### Battle tested with different use cases on [ho-gi.com](https://ho-gi.com).
 
 ## Use cases:
 
 * **design complex animated transformations:** thanks to its built in morphs and morphFactory tool for new morphs creation louv is comfortable tool to design any kind of injected css based transformations, including ones that seems to be impossible
-* **crate gallery** louv has build in a gallery mechanism with methods: presentPicture, hidePicture, next, loop 
+* **create gallery** louv has build in a gallery mechanism with methods: presentPicture, hidePicture, next, loop 
 * **slice image or text into molecules** louv's picture factory is a tool to split html img element into canvas molecules or split html text into span elements containing words or chars.
 
 ## Features:
@@ -34,6 +34,8 @@ Louv's pictureFactory is standalone module that will slice any image or text int
 
 Louv consists of several tools:
 * **LouvGallery (default import):** the heart of louv - the engine that takes full advantage of all components to present images or texts. You can have many instances and nest one gallery inside of another.
+* **morphs (in 'morphs' subfolder)** configurable transormations of pictures. Morph needs to instantiated with configuration to be valid object with .action method. Beofre that it is a morph object factory.
+* **scenarios (in 'scenarios' subfolder)** ready scenarios for those want to start quickly. If you like some scenario goodd solution is to copy its code into your project and adjust configuration to your taste.
 * **morphFactory:** a factory function that lets you produce custom morph transforming LouvImage or LouvText. It has built in options like 'one-by-one' or 'line-by-line' transitions delay but also controlls injecting css, transition stack for every possible target (gallery, picture, molecule), morphs processing scope, listening to transitionend or alternatively setTimeout and calculating overall duration.
 * **pictureFactory:** creates LouvPicture of certain type (image or text) with optionally sliced element derived from given source. Can be used as standalone to lazy-load and/or split source into molecules.
 
@@ -100,17 +102,19 @@ in your sass (or other style compiler:
 
 (currently only sass file is supplied)
 
-#### minimal: 
+#### minimal (will use default scenario): 
 
 ```javascript
 import Louv from 'louv;
 
-// it will use 'example' scenario from scenarios
 const louvInstance = new Louv({ selector: '.js-some-louv' })
 louvInstance.init();
 ```
 
-#### realworld example:
+#### complex example:
+
+Below we import default Louv which is the gallery engine & api. Named import below are morphs. It is the easiest way to import a morph.
+Please note however that more optimized (shorter build time in development) are imports of morphs directly from node_modules (import from 'louv/lib/morphs') but in this case node_modules/louv should not be excluded in a babel or other parser because of use of  es6 'import'. When exluding node_modules you should ommit louv: '/node_modules(?!(\/|\\)louv)/' 
 
 ```javascript
 import Louv, {
@@ -255,7 +259,7 @@ https://github.com/pprzezwanski/louv/wiki/Documentation
 
 ## Contributing
 
-The main purpose of this repository is to continue to evolve louv and create more scenarios and morphs. So there is a big field to contribute. The author will be gratefull to the community for any contributing (fork/pull requests workflow).
+The main purpose of this repository is to continue to evolve louv and create more morphs and scenarios. So there is a big field to contribute. Also the engine can benefit from new features. The author will be gratefull to the community for any suggestions and contributing (fork/pull requests workflow).
 
 ## License
 
