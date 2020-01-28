@@ -33,8 +33,6 @@ export default class Louv {
   constructor(options) {
     this.config = deepExtend({
       selector: '[data-louv]', // class name for main element
-      width: 100, // for images: % of containers width
-      height: 100, // for images: % of containers height
       initialWidth: null,
       initialHeight: null,
       passive: false,
@@ -42,20 +40,20 @@ export default class Louv {
       preloadAllPictures: false,
       preloadPictureCss: true,
       preloadAll: false,
+      debug: false,
+      loadingMessage: true,
+      recalculateOnWindowChange: true,
       globalWaitAfterPresent: null,
       globalWaitAfterHide: null,
-      loadingMessage: true,
-      onWindowChange: {
-        recalculate: true,
-        firstRescale: false,
-        onlyRescale: false,
-      },
-      debug: false,
       textOptions: {},
       imageOptions: {},
       upstream: false,
-      morphDurationRace: true,
-      morphDurationSafetyMargin: 500,
+      width: 100, // for images: % of containers width
+      height: 100, // for images: % of containers height
+      firstRescale: false, // experimental: when recalculating after window change
+      onlyRescale: false, // experimental: when recalculating after window change
+      morphDurationRace: true, // not exposed in documentation yet
+      morphDurationSafetyMargin: 0, // not exposed in documentation yet
       scenarios: [initialScenario]
     }, options);
     this.id = null;
@@ -326,7 +324,11 @@ export default class Louv {
               const { promise, duration } = morphAction(i);
 
               morphPromise = this.config.morphDurationRace || i === lastIndex
-                ? durationPromiseRace(duration, promise)
+                ? durationPromiseRace(
+                    duration,
+                    promise,
+                    this.config.morphDurationSafetyMargin
+                  )
                 : promise;
             }
 
@@ -697,9 +699,9 @@ export default class Louv {
         }
 
         if (
-          this.config.onWindowChange.onlyRescale
+          this.config.onlyRescale
           || (
-            this.config.onWindowChange.firstRescale
+            this.config.firstRescale
               && this.config.type === 'image'
               && ratio < 1.2
           )
@@ -1076,7 +1078,7 @@ export default class Louv {
             else this.presentPicture();
           }
 
-          if (this.config.onWindowChange.recalculate) this.activateWindowResizeListeners();
+          if (this.config.recalculateOnWindowChange) this.activateWindowResizeListeners();
 
           this.initialized = true;
 

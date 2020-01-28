@@ -27,8 +27,8 @@ const propertyValue = input => (m) => {
   m.yTranslation = -m.fromCenter.y;
 
   return `
-        translate3d(${m.xTranslation * sign}px, ${m.yTranslation}px, ${m.zTranslation * sign}px) rotateY(${m.yRotation}rad)
-    `;
+    translate3d(${m.xTranslation * sign}px, ${m.yTranslation}px, ${m.zTranslation * sign}px) rotateY(${m.yRotation}rad)
+  `;
 };
 
 const centeredIteration = (fn, picture) => {
@@ -58,6 +58,10 @@ const cylinderizeConfig = {
   target: 'molecule',
   propertyValue,
   customIteration: centeredIteration,
+  defaultConfig: {
+    sType: false,
+    angleInRadians: Math.PI / 14, 
+  }
 };
 
 const cylinderize = morph('cylinderize', cylinderizeConfig);
