@@ -12,6 +12,11 @@ Louv's pictureFactory is standalone module that will slice any image or text int
 
 #### Battle tested with different use cases on [ho-gi.com](https://ho-gi.com).
 
+## Documentation
+
+* [Table of contents](https://github.com/pprzezwanski/louv/wiki)
+* [10 minutes quick start tutorial](https://github.com/pprzezwanski/louv/wiki/quick-start-tutorial)
+
 ## Use cases:
 
 * **design complex animated transformations:** thanks to its built in morphs and morphFactory tool for new morphs creation louv is comfortable tool to design any kind of injected css based transformations, including ones that seems to be impossible
@@ -62,13 +67,17 @@ and for importing sass file from node_modules we have to add sass config:
 includePaths: ['node_modules']
 ```
 
+than in style.scss we write: `@import 'louv/lib/louv'`;
+
+You can also manually copy the file from this repo from [here](https://github.com/pprzezwanski/louv/blob/master/src/louv.scss).
+
+(currently only sass file is supplied)
+
 ## Usage
 
 #### html:
 
-You can use data-srcset, data-src or just src to avoid lazy-loading.
-
-```javascript
+```
 <div class="js-some-louv louv">
     <img
         src=""
@@ -91,16 +100,6 @@ You can use data-srcset, data-src or just src to avoid lazy-loading.
 </div>
 
 ```
-
-#### styles:
-
-in your sass (or other style compiler:
-
-```
-@import 'louv/lib/louv';
-```
-
-(currently only sass file is supplied)
 
 #### minimal (will use default scenario): 
 
@@ -252,10 +251,6 @@ smthElse
   .then(() => promiseSmthElse())
   .then(() => louvInstance.next);
 ```
-
-## Documentation
-
-https://github.com/pprzezwanski/louv/wiki/Documentation
 
 ## Contributing
 
